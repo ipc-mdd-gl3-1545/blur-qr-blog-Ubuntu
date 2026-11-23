@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1040" height="856" viewBox="0 0 1040 856" role="img" aria-label="博客后端架构图" xmlns="http://www.w3.org/2000/svg"
+                 font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif">
+  <rect width="1040" height="856" fill="#150d26" rx="14"/>
+              <defs>
+                <marker id="aArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M1 1L9 5L1 9" fill="none" stroke="#a78bfa" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+                <marker id="aArrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M1 1L9 5L1 9" fill="none" stroke="#6aa9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+                <marker id="aArrowPink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M1 1L9 5L1 9" fill="none" stroke="#f0a6d0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+                <linearGradient id="gGate" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#3a2358"/><stop offset="1" stop-color="#2a1a42"/>
+                </linearGradient>
+                <linearGradient id="gK8s" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#1d2246"/><stop offset="1" stop-color="#191c3a"/>
+                </linearGradient>
+                <linearGradient id="gNode" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#262a52"/><stop offset="1" stop-color="#22254a"/>
+                </linearGradient>
+              </defs>
+
+              <!-- 标题 -->
+              <text x="520" y="28" text-anchor="middle" font-size="15.5" font-weight="700" fill="#f4ecff">五层看清整条链路</text>
+              <text x="520" y="47" text-anchor="middle" font-size="10.5" fill="#a99cc4">三台 Ubuntu 26.04：VM1 守门（不进集群），VM2 + VM3 组成 Kubernetes 集群，业务全在容器里</text>
+
+              <!-- ============ ① 用户 ============ -->
+              <rect x="24" y="62" width="992" height="74" rx="14" fill="rgba(255,255,255,.028)" stroke="rgba(255,255,255,.08)" stroke-dasharray="4 4"/>
+              <text x="40" y="82" font-size="11" font-weight="700" fill="#a99cc4">① 用户</text>
+              <rect x="320" y="92" width="180" height="46" rx="10" fill="#2b2140" stroke="#a78bfa" stroke-width="1"/>
+              <text x="410" y="112" text-anchor="middle" font-size="12.5" font-weight="600" fill="#f4ecff">访客浏览器</text>
+              <text x="410" y="129" text-anchor="middle" font-size="9.5" fill="#a99cc4">看文章 · 视频 · 发弹幕</text>
+              <rect x="520" y="92" width="180" height="46" rx="10" fill="#2b2140" stroke="#f0a6d0" stroke-width="1"/>
+              <text x="610" y="112" text-anchor="middle" font-size="12.5" font-weight="600" fill="#f4ecff">管理员</text>
+              <text x="610" y="129" text-anchor="middle" font-size="9.5" fill="#a99cc4">后台 · 观测 · 备份 · 控制台</text>
+
+              <path d="M410 138 L410 164" fill="none" stroke="#a78bfa" stroke-width="1.6" marker-end="url(#aArrow)"/>
+              <path d="M610 138 L610 164" fill="none" stroke="#f0a6d0" stroke-width="1.6" marker-end="url(#aArrowPink)"/>
+              <text x="418" y="158" font-size="9" fill="#a99cc4">HTTPS 443</text>
+              <text x="618" y="158" font-size="9" fill="#a99cc4">HTTPS 443</text>
+
+              <!-- ============ ② 网关 ============ -->
+              <rect x="24" y="170" width="992" height="118" rx="14" fill="rgba(167,139,250,.05)" stroke="rgba(167,139,250,.22)"/>
+              <text x="40" y="190" font-size="11" font-weight="700" fill="#c4b5fd">② 网关层 · VM1 · 192.168.200.11 · 普通主机，不进集群</text>
+              <rect x="200" y="200" width="640" height="82" rx="12" fill="url(#gGate)" stroke="#a78bfa" stroke-width="1.2"/>
+              <text x="520" y="218" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ede9fe">Nginx 1.28.3 · 唯一入口 + 统一鉴权</text>
+              <g font-size="9.5" fill="#d8cff5" text-anchor="middle">
+                <rect x="214" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="261" y="246">TLS 1.2/1.3</text>
+                <rect x="318" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="365" y="246">WAF 拦注入</text>
+                <rect x="422" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="469" y="246">limit_req</text>
+                <rect x="526" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="573" y="246">灰度发布</text>
+                <rect x="630" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="677" y="246">auth_request</text>
+                <rect x="734" y="228" width="94" height="28" rx="7" fill="rgba(0,0,0,.24)" stroke="rgba(255,255,255,.12)"/><text x="781" y="246">WS 反代</text>
+              </g>
+              <text x="520" y="274" text-anchor="middle" font-size="9" fill="#a99cc4">HTTPS 在这里终止 → 只留内网 8080 一个口转发进集群</text>
+              <circle id="dot-gateway" cx="826" cy="210" r="5.5" fill="#57d9a3" stroke="#170e26" stroke-width="2"/>
+
+              <path d="M520 288 L520 314" fill="none" stroke="#a78bfa" stroke-width="1.6" marker-end="url(#aArrow)"/>
+              <rect x="532" y="292" width="122" height="19" rx="6" fill="#170e26"/>
+              <text x="542" y="305" font-size="9" fill="#c4b5fd">内网 HTTP · 8080</text>
+
+              <!-- ============ ③ 集群 ============ -->
+              <rect x="24" y="320" width="992" height="292" rx="14" fill="url(#gK8s)" stroke="rgba(106,169,255,.28)" stroke-width="1.2"/>
+              <text x="40" y="340" font-size="11" font-weight="700" fill="#8ab4ff">③ Kubernetes 集群 · kubeadm v1.31.14 · containerd 2.2.2</text>
+              <rect x="40" y="350" width="960" height="26" rx="8" fill="rgba(86,204,242,.10)" stroke="rgba(86,204,242,.32)" stroke-dasharray="4 3"/>
+              <text x="520" y="367" text-anchor="middle" font-size="9.5" fill="#8fd9f2">Calico CNI v3.28.2 · Pod 网段 10.244.0.0/16 · CoreDNS v1.11.3 提供集群内域名解析</text>
+
+              <!-- VM2 -->
+              <rect x="40" y="386" width="470" height="212" rx="12" fill="url(#gNode)" stroke="rgba(138,180,255,.45)" stroke-width="1.1"/>
+              <text x="56" y="406" font-size="11.5" font-weight="700" fill="#e8efff">VM2 · 192.168.200.12</text>
+              <rect x="238" y="393" width="92" height="17" rx="5" fill="rgba(138,180,255,.18)" stroke="rgba(138,180,255,.35)"/>
+              <text x="284" y="405" text-anchor="middle" font-size="8.5" fill="#a8c8ff">control-plane</text>
+              <text x="56" y="421" font-size="8.5" fill="#a99cc4">kube-apiserver · etcd · scheduler · controller-manager</text>
+              <rect x="56" y="428" width="438" height="20" rx="6" fill="rgba(106,169,255,.12)" stroke="rgba(106,169,255,.26)"/>
+              <text x="275" y="442" text-anchor="middle" font-size="9" fill="#a8c8ff">kubelet + containerd · 直接运行 Docker 格式镜像</text>
+
+              <rect x="56" y="456" width="438" height="40" rx="8" fill="rgba(0,0,0,.26)" stroke="rgba(255,255,255,.11)"/>
+              <text x="72" y="472" font-size="10.5" font-weight="600" fill="#eaf7f2">ingress-nginx v1.11.3 · 入口路由</text>
+              <text x="72" y="487" font-size="8.5" fill="#a99cc4">hostNetwork 8080 → 按域名转发到 Service</text>
+              <circle id="dot-ingress" cx="478" cy="468" r="5" fill="#57d9a3" stroke="#22254a" stroke-width="2"/>
+
+              <rect x="56" y="502" width="438" height="40" rx="8" fill="rgba(167,139,250,.16)" stroke="rgba(167,139,250,.45)"/>
+              <text x="72" y="518" font-size="10.5" font-weight="600" fill="#ede9fe">blog Pod · Apache 2.4 + PHP 8.2</text>
+              <text x="72" y="533" font-size="8.5" fill="#a99cc4">官方镜像 · 代码与上传挂 hostPath /opt/blog</text>
+              <circle id="dot-php" cx="478" cy="514" r="5" fill="#57d9a3" stroke="#22254a" stroke-width="2"/>
+
+              <rect x="56" y="548" width="438" height="36" rx="8" fill="rgba(0,0,0,.26)" stroke="rgba(255,255,255,.11)"/>
+              <text x="72" y="563" font-size="10.5" font-weight="600" fill="#fdeaf5">redis Pod · redis:7.2-alpine</text>
+              <text x="72" y="576" font-size="8.5" fill="#a99cc4">6379 · 当前仅做健康检查，缓存位已预留</text>
+              <circle id="dot-redis" cx="478" cy="560" r="5" fill="#57d9a3" stroke="#22254a" stroke-width="2"/>
+
+              <!-- VM3 -->
+              <rect x="530" y="386" width="470" height="212" rx="12" fill="url(#gNode)" stroke="rgba(138,180,255,.45)" stroke-width="1.1"/>
+              <text x="546" y="406" font-size="11.5" font-weight="700" fill="#e8efff">VM3 · 192.168.200.13</text>
+              <rect x="726" y="393" width="62" height="17" rx="5" fill="rgba(138,180,255,.10)" stroke="rgba(138,180,255,.28)"/>
+              <text x="757" y="405" text-anchor="middle" font-size="8.5" fill="#a8c8ff">worker</text>
+              <text x="546" y="421" font-size="8.5" fill="#a99cc4">kube-proxy · kubelet（纯工作节点，不跑控制面）</text>
+              <rect x="546" y="428" width="438" height="20" rx="6" fill="rgba(106,169,255,.12)" stroke="rgba(106,169,255,.26)"/>
+              <text x="765" y="442" text-anchor="middle" font-size="9" fill="#a8c8ff">kubelet + containerd · 直接运行 Docker 格式镜像</text>
+
+              <rect x="546" y="456" width="438" height="78" rx="8" fill="rgba(240,166,208,.14)" stroke="rgba(240,166,208,.42)"/>
+              <text x="562" y="474" font-size="10.5" font-weight="600" fill="#fdeaf5">mysql Pod · MySQL 8.0 · StatefulSet</text>
+              <text x="562" y="490" font-size="8.5" fill="#a99cc4">库 blog · 3306 · 仅集群内可达，公网访问不到</text>
+              <text x="562" y="506" font-size="8.5" fill="#f0a6d0">数据落 PVC 5Gi（local-path → VM3 本地磁盘）</text>
+              <text x="562" y="522" font-size="8.5" fill="#a99cc4">全站唯一持久化业务数据，备份也从这里导</text>
+              <circle id="dot-mysql" cx="968" cy="468" r="5.5" fill="#57d9a3" stroke="#22254a" stroke-width="2"/>
+
+              <rect x="546" y="544" width="438" height="40" rx="8" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.08)" stroke-dasharray="3 3"/>
+              <text x="562" y="560" font-size="9" font-weight="600" fill="#d8cff5">VM3 只干一件事：跑数据库</text>
+              <text x="562" y="575" font-size="8.5" fill="#a99cc4">磁盘写入集中在这里，便于备份与恢复，也不抢业务 CPU</text>
+
+              <path d="M494 522 L512 522 L512 476 L542 476" fill="none" stroke="#f0a6d0" stroke-width="1.5" marker-end="url(#aArrowPink)"/>
+              <text x="512" y="470" font-size="8" fill="#a99cc4">SQL</text>
+
+              <!-- ============ ④ 存储 ============ -->
+              <rect x="24" y="618" width="992" height="100" rx="14" fill="rgba(240,166,208,.045)" stroke="rgba(240,166,208,.2)"/>
+              <text x="40" y="638" font-size="11" font-weight="700" fill="#f0a6d0">④ 数据落盘 · 卷跟着节点走，容器重建不丢数据</text>
+              <g>
+                <rect x="40" y="648" width="226" height="54" rx="10" fill="#3a2240" stroke="#f0a6d0" stroke-width="1"/>
+                <text x="153" y="667" text-anchor="middle" font-size="11" font-weight="600" fill="#fdeaf5">MySQL PVC</text>
+                <text x="153" y="683" text-anchor="middle" font-size="9" fill="#a99cc4">data-mysql-0 · 5Gi</text>
+                <text x="153" y="696" text-anchor="middle" font-size="8.5" fill="#f0a6d0">在 VM3 本地磁盘</text>
+
+                <rect x="282" y="648" width="226" height="54" rx="10" fill="#3a2240" stroke="#f0a6d0" stroke-width="1"/>
+                <text x="395" y="667" text-anchor="middle" font-size="11" font-weight="600" fill="#fdeaf5">Redis PVC</text>
+                <text x="395" y="683" text-anchor="middle" font-size="9" fill="#a99cc4">data-redis-0 · 1Gi</text>
+                <text x="395" y="696" text-anchor="middle" font-size="8.5" fill="#f0a6d0">在 VM2 本地磁盘</text>
+
+                <rect x="524" y="648" width="226" height="54" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+                <text x="637" y="667" text-anchor="middle" font-size="11" font-weight="600" fill="#f4ecff">hostPath 代码卷</text>
+                <text x="637" y="683" text-anchor="middle" font-size="9" fill="#a99cc4">/opt/blog · 源码 + 上传文件</text>
+                <text x="637" y="696" text-anchor="middle" font-size="8.5" fill="#c4b5fd">改代码不用重建镜像</text>
+
+                <rect x="766" y="648" width="226" height="54" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+                <text x="879" y="667" text-anchor="middle" font-size="11" font-weight="600" fill="#f4ecff">hostPath 备份卷</text>
+                <text x="879" y="683" text-anchor="middle" font-size="9" fill="#a99cc4">/opt/backups · SQL.gz 产物</text>
+                <text x="879" y="696" text-anchor="middle" font-size="8.5" fill="#c4b5fd">再传一份到 VM1 异地</text>
+              </g>
+
+              <!-- 管理/旁路链路 -->
+              <path d="M700 115 L1026 115 L1026 800 L1000 800" fill="none" stroke="#f0a6d0" stroke-width="1.2"
+                    stroke-dasharray="5 4" opacity=".45" marker-end="url(#aArrowPink)"/>
+
+              <!-- ============ ⑤ 运维支撑 ============ -->
+              <rect x="24" y="726" width="992" height="126" rx="14" fill="rgba(87,217,163,.045)" stroke="rgba(87,217,163,.22)"/>
+              <text x="40" y="746" font-size="11" font-weight="700" fill="#7ee2b8">⑤ 运维支撑 · 三件事都在后台点一下就能用（虚线 = 管理/旁路，不占主链路）</text>
+
+              <rect x="24" y="756" width="316" height="86" rx="10" fill="rgba(0,0,0,.22)" stroke="rgba(255,255,255,.1)"/>
+              <text x="40" y="776" font-size="10.5" font-weight="600" fill="#eaf7f2">▤ 可观测中心（bug 也能看到）</text>
+              <text x="40" y="793" font-size="8.5" fill="#a99cc4">watchdog.js 抓前端 JS 异常 → POST /api/client-error</text>
+              <text x="40" y="807" font-size="8.5" fill="#a99cc4">PHP 全局错误钩子 → 同一张 sys_errors 表</text>
+              <text x="40" y="821" font-size="8.5" fill="#a99cc4">后台看：类型 / 页面 / 堆栈 / 趋势 / 一键标记已修</text>
+
+              <rect x="352" y="756" width="316" height="86" rx="10" fill="rgba(0,0,0,.22)" stroke="rgba(255,255,255,.1)"/>
+              <text x="368" y="776" font-size="10.5" font-weight="600" fill="#eaf7f2">▣ 数据库备份（自动 + 手动）</text>
+              <text x="368" y="793" font-size="8.5" fill="#a99cc4">cron 每天 03:00 · mysqldump + gzip</text>
+              <text x="368" y="807" font-size="8.5" fill="#a99cc4">写 /opt/backups，再 scp 一份到 VM1 异地</text>
+              <text x="368" y="821" font-size="8.5" fill="#a99cc4">保留 7 天；后台手动备份由 systemd path 触发</text>
+
+              <rect x="680" y="756" width="316" height="86" rx="10" fill="rgba(0,0,0,.22)" stroke="rgba(255,255,255,.1)"/>
+              <text x="696" y="776" font-size="10.5" font-weight="600" fill="#eaf7f2">▸ Web 控制台（浏览器里的 SSH）</text>
+              <text x="696" y="793" font-size="8.5" fill="#a99cc4">后台 → /console/（先过 auth_request 鉴权）</text>
+              <text x="696" y="807" font-size="8.5" fill="#a99cc4">WebSocket /ws → VM2 上的 ttyd 1.7.7，监听 :7681</text>
+              <text x="696" y="821" font-size="8.5" fill="#a99cc4">iptables 只放行 VM1，公网直接 DROP</text>
+            </svg>

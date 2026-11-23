@@ -1,0 +1,39 @@
+# ===== 依赖与构建产物 =====
+node_modules/
+vendor/
+dist/
+
+# ===== 机密与数据（绝对不能提交）=====
+.env
+.env.*
+!.env.example
+api/config.php
+data/
+uploads/
+videos/
+*.db
+*.db-wal
+*.db-shm
+*.key
+*.sql
+*.sql.gz
+!deploy/lamp/init.sql
+
+# ===== 离线安装包 =====
+*.tar.gz
+*.iso
+
+# ===== 编辑器 / 系统 / 工具临时文件 =====
+.workbuddy/
+*.genie
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== 本地联调 / 截图产生的临时物 =====
+_tmp/
+previewtest.html
+shot.js
+_*.png
