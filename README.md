@@ -428,9 +428,8 @@ blur-qr-blog-Ubuntu/
 │  ├─ manage.php         # 后台页面入口（ADMIN_PATH）
 │  ├─ sample.php         # cron 监控采样脚本
 │  └─ config.example.php # 配置样例（部署时复制为 config.php，不进仓库）
-├─ assets/               # 背景视频、海报、共享样式、思维导图渲染器、封面
+├─ assets/               # 背景视频 bg.mp4、海报、共享样式、思维导图脚本、封面、meme 贴纸
 ├─ docs/
-│  ├─ cover.jpg          # 文档封面
 │  ├─ architecture.svg   # 三机五层架构图（矢量）
 │  └─ ARCHITECTURE.md    # 架构说明 + 39 项技术栈 + 踩坑备忘
 ├─ deploy/lamp/          # LAMP 部署：install.sh / apache-vhost.conf / init.sql
