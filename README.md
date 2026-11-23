@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/readme-cover.jpg?v=2" alt="模糊二维码 · 博客 Ubuntu 服务器版封面" width="100%">
+<img src="assets/readme-cover-2.jpg" alt="模糊二维码 · 博客 Ubuntu 服务器版封面" width="100%">
 </div>
 
 <h1 align="center">🎀 Hi～我是「模糊二维码」的服务器版 ( ˶ˆ ᗜ ˆ˵ ) ♡</h1>
