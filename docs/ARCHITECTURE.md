@@ -148,7 +148,7 @@ VM1 ──8080──▶ ingress-nginx（catch-all，不写 host）
 
 ## Node 单机版差在哪？(・∀・)
 
-`blur-qr-blog-Windows/` 那套是「一个人玩」的形态，架构图上除了 ② 之外都可以不看：
+姊妹仓库 [blur-qr-blog-Windows](https://github.com/ipc-mdd-gl3-1545/blur-qr-blog-Windows) 那套是「一个人玩」的形态，架构图上除了 ② 之外都可以不看：
 
 | | 单机版 | 集群版 |
 | --- | --- | --- |

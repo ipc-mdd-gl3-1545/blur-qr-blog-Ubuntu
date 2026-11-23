@@ -382,7 +382,7 @@ git tag -a v1.1.0 -m "v1.1.0 小版本"      # 想记住这一刻
 服务器回滚：`cd /var/www/blog && git fetch --tags && git reset --hard v1.1.0`
 （`api/config.php`、`data/`、`uploads/` 不在仓库里，怎么滚都不会丢 (๑•̀ㅂ•́)و✧）
 
-完整 Git 说明在 **[GIT.md](GIT.md)**。
+仓库地址：<https://github.com/ipc-mdd-gl3-1545/blur-qr-blog-Ubuntu> ，每次改动都留在 `git log` 里。
 
 ---
 
