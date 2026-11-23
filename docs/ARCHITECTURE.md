@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./cover.jpg" alt="模糊二维码 · 后端架构" width="100%">
+<img src="./cover.jpg?v=2" alt="模糊二维码 · 后端架构" width="100%">
 
 </div>
 
